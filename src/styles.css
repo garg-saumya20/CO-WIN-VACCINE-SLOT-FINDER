@@ -1,0 +1,102 @@
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+.search {
+  background-color: black;
+  color: white;
+  outline: none;
+  cursor: pointer;
+  height: 2.5rem;
+}
+.input {
+  height: 2rem;
+  width: 15rem;
+  border: 2px solid black;
+}
+.container {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+.box {
+  border: 2px solid black;
+  text-align: center;
+  margin: 2rem;
+  width: 100%;
+}
+.slots {
+  color: green;
+  font-weight: 800;
+}
+.slots_NA {
+  color: rgb(100, 11, 73);
+  font-weight: 800;
+}
+.vaccine_free {
+  /* color:rgb(11, 100, 63); */
+  color: white;
+  font-weight: 800;
+  width: 4rem;
+  background-color: green;
+  margin: auto;
+}
+.vaccine_paid {
+  /* color:rgb(100, 11, 73); */
+  color: white;
+  font-weight: 800;
+  margin: auto;
+  width: 4rem;
+  background-color: rgb(100, 11, 73);
+}
+.vaccine {
+  color: white;
+  margin: auto;
+  width: 8rem;
+  background-color: rgb(110, 92, 105);
+}
+.options {
+  margin: 2rem;
+}
+.btn {
+  cursor: pointer;
+  margin: auto;
+  color: white;
+  outline: none;
+  text-decoration: none;
+  padding: 1rem;
+}
+.free {
+  background-color: green;
+}
+.paid {
+  background-color: rgb(100, 11, 73);
+}
+.covishield {
+  background-color: rgb(29, 19, 0);
+}
+.covaxin {
+  background-color: rgb(121, 94, 99);
+}
+.sputnik {
+  background-color: rgb(46, 0, 0);
+}
+.xyz {
+  background-color: rgb(12, 11, 9);
+}
+.abc {
+  background-color: rgb(29, 19, 0);
+}
+.avai_slots {
+  background-color: rgb(0, 78, 74);
+}
+.age_limit {
+  color: rgb(100, 11, 73);
+  font-weight: 800;
+}
+.load {
+  align-items: center;
+  text-align: center;
+  margin: auto;
+}
