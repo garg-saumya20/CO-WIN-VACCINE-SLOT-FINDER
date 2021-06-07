@@ -117,6 +117,12 @@ export default function App() {
             Search
           </button>
         </div>
+        <div className="warning">
+          <p>
+            The data is sourced real-time from Co-WIN.Please use the Co-Win app
+            to book vaccination appointments.
+          </p>
+        </div>
         <div className="options">
           <button onClick={() => FltCV()} className="btn covaxin">
             Covaxin
@@ -134,7 +140,7 @@ export default function App() {
             Paid
           </button>
           <button onClick={(young) => FltY()} className="btn xyz">
-            18-44
+            18+
           </button>
           <button onClick={(old) => FltO()} className="btn abc">
             45+
@@ -202,6 +208,14 @@ export default function App() {
             </div>
           </>
         ))}
+        <div className="footer">
+          <h3>
+            Copyright © 2021 All rights reserved.
+            <br />
+            Made by Saumya Garg
+            <br />
+          </h3>
+        </div>
       </div>
     </>
   );

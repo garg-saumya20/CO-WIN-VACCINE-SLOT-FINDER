@@ -2,6 +2,18 @@
   font-family: sans-serif;
   text-align: center;
 }
+.warning {
+  color: red;
+  font-weight: 800;
+}
+.footer {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(83, 6, 6);
+  color: white;
+  text-align: center;
+}
 .search {
   background-color: black;
   color: white;
