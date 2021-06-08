@@ -112,3 +112,9 @@
   text-align: center;
   margin: auto;
 }
+.dose-1 {
+  background-color: rgb(7, 30, 245);
+}
+.dose-2 {
+  background-color: rgb(29, 19, 0);
+}

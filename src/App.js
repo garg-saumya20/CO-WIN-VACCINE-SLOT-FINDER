@@ -99,6 +99,24 @@ export default function App() {
       })
     );
   }
+  function FltDO() {
+    setdata(
+      data.filter((inf) => {
+        if (inf.available_capacity_dose1 !== 0) {
+          return inf;
+        }
+      })
+    );
+  }
+  function FltDT() {
+    setdata(
+      data.filter((inf) => {
+        if (inf.available_capacity_dose2 !== 0) {
+          return inf;
+        }
+      })
+    );
+  }
   return (
     <>
       <div className="App">
@@ -144,6 +162,18 @@ export default function App() {
           </button>
           <button onClick={(old) => FltO()} className="btn abc">
             45+
+          </button>
+          <button
+            onClick={(available_capacity_dose1) => FltDO()}
+            className="btn dose-1"
+          >
+            DOSE-1
+          </button>
+          <button
+            onClick={(available_capacity_dose2) => FltDT()}
+            className="btn dose-2"
+          >
+            DOSE-2
           </button>
           <button
             onClick={(available_capacity) => FltA()}
