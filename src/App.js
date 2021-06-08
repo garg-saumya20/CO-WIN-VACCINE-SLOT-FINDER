@@ -3,6 +3,7 @@ import "./styles.css";
 export default function App() {
   const [pin, setPincode] = useState("");
   const [data, setdata] = useState([]);
+
   const [Loading, setLoading] = useState(false);
 
   const date = new Date();
@@ -22,8 +23,10 @@ export default function App() {
     const URL = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${todaydate}`;
     const response = await fetch(URL);
     var resJson = await response.json();
+
     //console.log(resJson);
     setdata(resJson.sessions);
+
     setLoading(false);
   };
 
@@ -183,7 +186,6 @@ export default function App() {
           </button>
         </div>
       </div>
-
       {/* /* {data.length === 0 ? 
       <p>N/A</p> : 
       (
@@ -193,59 +195,72 @@ export default function App() {
           <h3>Loading...</h3>
         </div>
       )}
-      <div className="container">
-        {data.map((element) => (
-          <>
-            <div className="box">
-              <div className="element-box">
-                <h2>{element.name}</h2>
-
-                <br />
-                <span>{element.address},</span>
-                <br />
-                <spam>{element.district_name},</spam>
-                <br />
-                <spam>{element.state_name}</spam>
-                <br />
-                <span>{element.pincode}</span>
-              </div>
-
-              {!element.available_capacity ? (
-                <div className="slots_NA">
-                  <h3>SLOTS NOT AVAILABLE</h3>
-                </div>
-              ) : (
-                <div className="slots">
-                  <h2>{element.available_capacity} slots</h2>
-                </div>
-              )}
-              <div className="age_limit">
-                <h3>Age Limit : {element.min_age_limit}</h3>
-              </div>
-              <div className="vaccine">
-                <h3>{element.vaccine}</h3>
-              </div>
-
-              {element.fee_type === "Free" ? (
-                <div className="vaccine_free">
-                  <h3>Free</h3>
-                </div>
-              ) : (
-                <div className="vaccine_paid">
-                  <h3>Paid</h3>
-                </div>
-              )}
-            </div>
-          </>
-        ))}
-        <div className="footer">
-          <h3>
-            Copyright © 2021 All rights reserved.
-            <br />
-            Made by Saumya Garg
-            <br />
-          </h3>
+      {pin.length > 6 ? (
+        <div className="load">
+          {" "}
+          <h3>Pincode should be of 6 digit....</h3>{" "}
         </div>
+      ) : data === [] ? (
+        <div className="load">
+          {" "}
+          <h3>Sorry....</h3>{" "}
+        </div>
+      ) : (
+        <div className="container">
+          {data.map((element) => (
+            <>
+              <div className="box">
+                <div className="element-box">
+                  <h2>{element.name}</h2>
+
+                  <br />
+                  <span>{element.address},</span>
+                  <br />
+                  <spam>{element.district_name},</spam>
+                  <br />
+                  <spam>{element.state_name}</spam>
+                  <br />
+                  <span>{element.pincode}</span>
+                </div>
+
+                {!element.available_capacity ? (
+                  <div className="slots_NA">
+                    <h3>SLOTS NOT AVAILABLE</h3>
+                  </div>
+                ) : (
+                  <div className="slots">
+                    <h2>{element.available_capacity} slots</h2>
+                  </div>
+                )}
+                <div className="age_limit">
+                  <h3>Age Limit : {element.min_age_limit}</h3>
+                </div>
+                <div className="vaccine">
+                  <h3>{element.vaccine}</h3>
+                </div>
+
+                {element.fee_type === "Free" ? (
+                  <div className="vaccine_free">
+                    <h3>Free</h3>
+                  </div>
+                ) : (
+                  <div className="vaccine_paid">
+                    <h3>Paid</h3>
+                  </div>
+                )}
+              </div>
+            </>
+          ))}
+        </div>
+      )}
+      }
+      <div className="footer">
+        <h3>
+          Copyright © 2021 All rights reserved.
+          <br />
+          Made by Saumya Garg
+          <br />
+        </h3>
       </div>
     </>
   );
