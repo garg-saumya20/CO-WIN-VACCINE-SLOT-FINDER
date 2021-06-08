@@ -1,5 +1,9 @@
 import { useState } from "react";
 import "./styles.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 export default function App() {
   const [pin, setPincode] = useState("");
   const [data, setdata] = useState([]);
@@ -19,15 +23,20 @@ export default function App() {
 
   const todaydate = `${dte}-${month}-${year}`;
   const fetchAPI = async () => {
-    setLoading(true);
-    const URL = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${todaydate}`;
-    const response = await fetch(URL);
-    var resJson = await response.json();
-
-    //console.log(resJson);
-    setdata(resJson.sessions);
-
-    setLoading(false);
+    if (!pin) {
+      toast.error("Please enter Pincode");
+    } else if (pin.length > 6 || pin.length < 6) {
+      toast.error("Pincode should be of 6 digits");
+      setPincode("");
+    } else {
+      setLoading(true);
+      const URL = `https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByPin?pincode=${pin}&date=${todaydate}`;
+      const response = await fetch(URL);
+      var resJson = await response.json();
+      setdata(resJson.sessions);
+      setLoading(false);
+      toast.success("Data fetched successfully..");
+    }
   };
 
   function FltCV() {
@@ -195,12 +204,8 @@ export default function App() {
           <h3>Loading...</h3>
         </div>
       )}
-      {pin.length > 6 ? (
-        <div className="load">
-          {" "}
-          <h3>Pincode should be of 6 digit....</h3>{" "}
-        </div>
-      ) : data === [] ? (
+
+      {data === [] ? (
         <div className="load">
           {" "}
           <h3>Sorry....</h3>{" "}
@@ -253,7 +258,7 @@ export default function App() {
           ))}
         </div>
       )}
-      }
+
       <div className="footer">
         <h3>
           Copyright © 2021 All rights reserved.
