@@ -2,6 +2,30 @@
   font-family: sans-serif;
   text-align: center;
 }
+.bigbox {
+  font-family: sans-serif;
+  text-align: center;
+}
+.top {
+  align-items: center;
+  margin: auto;
+}
+.choices {
+}
+.select {
+  height: 2rem;
+}
+.choice-btn {
+  border-radius: 2rem;
+  padding: 0.5rem;
+  width: 8rem;
+  cursor: pointer;
+}
+.choice-btn:hover {
+  background-color: rgb(197, 23, 23);
+  color: white;
+  width: 9rem;
+}
 .warning {
   color: red;
   font-weight: 800;
